@@ -7,6 +7,9 @@ services:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
+    hostname: elasticsearch
+    container_name: elasticsearch
+    restart: unless-stopped
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
