@@ -1,7 +1,5 @@
-version: '2'
-
+version: '2' 
 services:
-
   elasticsearch:
     build:
       context: elasticsearch/
@@ -12,15 +10,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data:/usr/share/elasticsearch/data   #chmod 775 -R elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-    networks:
-      - elk
-      
-networks:
-
-  elk:
-    driver: bridge
