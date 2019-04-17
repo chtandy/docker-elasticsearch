@@ -16,4 +16,4 @@ services:
       - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-      user: ${CURRENT_UID}
+      user: ${CURRENT_UID} #CURRENT_UID=$(id -u):$(id -g) docker-compose up
