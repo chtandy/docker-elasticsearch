@@ -10,10 +10,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/data:/usr/share/elasticsearch/data   #mkdir -p elasticsearch/data && chmod 775 -R elasticsearch/data
+      - ./elasticsearch/data:/usr/share/elasticsearch/data   #mkdir -p elasticsearch/data && chown -R 1000:1000 elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-      user: ${CURRENT_UID} #CURRENT_UID=$(id -u):$(id -g) docker-compose up
