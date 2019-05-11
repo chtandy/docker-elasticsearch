@@ -14,6 +14,6 @@ discovery.zen.minimum_master_nodes: 1
 ## see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
 #
 discovery.type: single-node
-index.number_of_shards: 1
-index.number_of_replicas: 0
-transport.tcp.compress: true
+#index.number_of_shards: 2
+#index.number_of_replicas: 0
+#transport.tcp.compress: true
