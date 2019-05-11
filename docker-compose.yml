@@ -8,9 +8,10 @@ services:
     hostname: elasticsearch
     container_name: elasticsearch
     restart: unless-stopped
+    user: root
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/data:/usr/share/elasticsearch/data   #mkdir -p elasticsearch/data && chown -R 1000:1000 elasticsearch/data
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
